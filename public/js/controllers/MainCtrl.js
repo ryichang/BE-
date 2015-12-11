@@ -26,13 +26,13 @@ angular.module('basic-auth')
     $scope.signup = function() {
       $auth.signup($scope.user)
         .then(function(response) {
-          console.log(response)
+          console.log(response);
           $auth.setToken(response);
           $scope.isAuthenticated();
           $scope.user = {};
         })
         .catch(function(response) {
-          console.log(response)
+          console.log(response);
         });
     };
 
@@ -44,7 +44,7 @@ angular.module('basic-auth')
           $scope.user = {};
         })
         .catch(function(response) {
-          console.log(response)
+          console.log(response);
         });
     };
 

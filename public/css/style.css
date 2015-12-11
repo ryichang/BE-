@@ -25,9 +25,114 @@ a {
 
 .navbar {
   margin:0;
+  border-radius: 0;
 }
 
 .dropdown-form {
   padding: 17px;
   width: 300px;
+}
+
+.ui-datepicker {
+  background: #231e1e;
+
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  margin-bottom: 1.618rem;
+}
+
+
+
+h1 {
+  font-weight: bold;
+  letter-spacing: -2px;
+  max-width: 300px;
+  color: black;
+}
+
+h3 {
+  font-weight: bold;
+  letter-spacing: -2px;
+  max-width: 300px;
+  color: white;
+}
+
+h4 {
+  
+  letter-spacing: -2px;
+  max-width: 200px;
+  color: white;
+}
+
+.form-group {
+	color: black;
+}
+
+.form-control {
+	color: grey;
+}
+
+.card {
+  background: #231e1e;
+  border-color: black;
+  color: white;
+  padding: 1rem;
+  min-height: 16rem;
+  position: relative;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: silver;
+  font-size: 0.6rem;
+}
+
+footer .heart {
+  color:#cf2e31;
+}
+
+.custom-icon {
+  font-size: 20px;
+  color : #cf2e31;
+}
+
+
+.card {
+  /* ... */
+  transition: all 300ms ease-in-out;
+}
+
+.card .btn {
+     -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:         all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .btn {
+  box-shadow: inset 0 100px 0 0 #31302B;
+    color: #FFF;
+ 
+}
+
+.card:active {
+  box-shadow: inset 0 5000px 0 0 #31302B;
+    color: #FFF;
+}
+
+.card .form-control {
+   -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:         all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card .form-control:focus {
+  margin-bottom: 20px;
 }

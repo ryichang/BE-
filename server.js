@@ -5,6 +5,7 @@
 require('dotenv').load();
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+// modules 
 var config = require('./config')
   , express = require('express')
   , app = express()
@@ -17,6 +18,9 @@ var config = require('./config')
   , server = app.listen(config.port)
   , mongoose  = require('mongoose')
 
+//configuration
+
+//config files 
 mongoose.connect(config.db);
 
 app.use("/", express.static(path.join(__dirname, 'public')));
@@ -38,7 +42,13 @@ app.set('view engine', 'html');
 // RESOURCES
 app.get('/', resources.index);
 app.get('/templates/:name', resources.templates);
+// app.post('/api/events', function(req, res) {
+//   console.log(req.body);
+// })
+
 require('./resources/users')(app);
+require('./resources/events')(app);
+
 
 // redirect all others to the index (HTML5 history)
 app.get('*', resources.index);

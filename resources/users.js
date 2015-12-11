@@ -28,11 +28,15 @@ module.exports = function(app) {
   });
 
   app.post('/auth/login', function(req, res) {
-    User.findOne({ email: req.body.email }, '+password', function(err, user) {
+    console.log(req.body)
+    // changed from email to username
+    User.findOne({ username: req.body.username }, '+password', function(err, user) {
+      console.log("here", err, user)
       if (!user) {
         return res.status(401).send({ message: 'Wrong email or password' });
       }
       user.comparePassword(req.body.password, function(err, isMatch) {
+        console.log("there", err, isMatch)
         console.log(isMatch)
         if (!isMatch) {
           return res.status(401).send({ message: 'Wrong email or password' });
@@ -49,6 +53,7 @@ module.exports = function(app) {
       }
       
       var user = new User({
+        username: req.body.username, // added this
         email: req.body.email,
         password: req.body.password
       });

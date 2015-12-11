@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "postinstall": "bower cache clean && bower install"
+    "postinstall": "bower cache clean && bower install",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mtvillwock/MEAN-auth.git"
+    "url": "git+https://github.com/mtvillwock/MEAN-auth.git"
   },
   "devDependencies": {
     "mocha": "^2.2.4",
@@ -50,5 +51,12 @@
     "satellizer": "^0.12.5",
     "serve-favicon": "^2.2.0",
     "serve-static": "^1.9.2"
+  },
+  "bugs": {
+    "url": "https://github.com/mtvillwock/MEAN-auth/issues"
+  },
+  "homepage": "https://github.com/mtvillwock/MEAN-auth#readme",
+  "directories": {
+    "test": "test"
   }
 }

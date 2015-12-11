@@ -1,0 +1,11 @@
+
+	<div class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in user.events">
+            <div class="card">
+              <h1>{{event.title}}</h1>
+              <h1>{{event.location}}</h1>
+              <h1>{{event.time}}</h1>
+              <a href="#" class='pull-right' ng-click="deleteEvent(event, $index)">
+              <i class='icon ion-close-circled custom-icon'></i>
+              </a>
+            </div>
+     </div>

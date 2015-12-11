@@ -10,11 +10,12 @@ function toLower (v) {
 var UserSchema = new Schema({
     created_at    : { type: Date }
   , updated_at    : { type: Date }
+  , username      : { type: String, required: true, unique: true, trim: true}
   , email         : { type: String, required: true, unique: true, trim: true, set: toLower }
   , password      : { type: String, select: false }
   , first         : { type: String, trim: true }
   , last          : { type: String, trim: true }
-})
+});
 
 UserSchema.virtual('fullname').get(function() {
   return this.first + ' ' + this.last;

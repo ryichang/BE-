@@ -14,8 +14,14 @@ angular.module('basic-auth.services', [])
           email: user.email,
           picture: user.picture,
           displayName: user.displayName
-        }
+        };
         return currentUser;
       }
-    }
+    };
   }])
+
+  .factory('Event', function ($window, $resource) {
+    return $resource($window.location.origin + '/api/events/:id', { id: '@id' }, {
+      update: { method: 'PUT'} 
+    });
+  });
