@@ -15,6 +15,7 @@ var UserSchema = new Schema({
   , password      : { type: String, select: false }
   , first         : { type: String, trim: true }
   , last          : { type: String, trim: true }
+  , events        : [{type: Schema.Types.ObjectId, ref: 'Event'}]
 });
 
 UserSchema.virtual('fullname').get(function() {

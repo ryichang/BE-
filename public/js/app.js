@@ -21,6 +21,11 @@ angular.module('basic-auth', ['basic-auth.services',
         controller: 'SettingsCtrl'
       });
 
+      $routeProvider.when('/events', {
+        templateUrl: 'templates/event-index',
+        controller: 'EventListCtrl'
+      });
+
       $routeProvider.otherwise({redirectTo: '/'});
 
       $locationProvider.html5Mode(true);

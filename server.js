@@ -50,6 +50,7 @@ require('./resources/users')(app);
 require('./resources/events')(app);
 
 
+
 // redirect all others to the index (HTML5 history)
 app.get('*', resources.index);
 

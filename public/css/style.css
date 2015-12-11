@@ -7,6 +7,7 @@
 }
 */
 
+
 .jumbotron {
   padding:100px 0 130px 0;
 }
@@ -53,10 +54,12 @@ header {
 
 
 h1 {
-  font-weight: bold;
-  letter-spacing: -2px;
-  max-width: 300px;
+  /*font-weight: bold;*/
+/*  letter-spacing: -2px;*/
+  max-width: 200px;
   color: black;
+  font-family: "acta-poster";
+  font-style: italic;
 }
 
 h3 {
@@ -67,8 +70,9 @@ h3 {
 }
 
 h4 {
-  
-  letter-spacing: -2px;
+  font-family: "acta-poster";
+  font-style: italic;
+ /* letter-spacing: -2px;*/
   max-width: 200px;
   color: white;
 }
@@ -77,6 +81,9 @@ h4 {
 	color: black;
 }
 
+.form-group-update {
+  color: white;
+}
 .form-control {
 	color: grey;
 }
@@ -136,3 +143,26 @@ footer .heart {
 .card .form-control:focus {
   margin-bottom: 20px;
 }
+
+button {
+
+    background: transparent;
+    border: none !important;
+}​
+
+/*.splashfooter { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(//api.twistage.com/videos/384ea219d7782/formats/webm_720/play.webm) no-repeat;
+    background-size: cover; 
+}
+*/
+
