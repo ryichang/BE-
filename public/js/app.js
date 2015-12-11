@@ -16,10 +16,10 @@ angular.module('basic-auth', ['basic-auth.services',
         controller: 'ProfileCtrl'
       });
 
-      // $routeProvider.when('/settings', {
-      //   templateUrl: 'templates/settings',
-      //   controller: 'SettingsCtrl'
-      // });
+      $routeProvider.when('/settings', {
+        templateUrl: 'templates/settings',
+        controller: 'SettingsCtrl'
+      });
 
       $routeProvider.otherwise({redirectTo: '/'});
 
