@@ -1,13 +1,18 @@
 
 var Event = require('../models/event.js'),
 	User = require('../models/user.js'),
-    auth = require('./auth');
+	qs = require('querystring'), 
+    auth = require('./auth'),
+    request = require('request'),
+    config = require('../config.js'),
+    moment = require('moment');
+
 
 module.exports = function(app) {
 
 	app.get('/api/events', function(req, res){
 		// INDEX - GET ALL EVENTS
-		Event.find().sort('-created_at').exec(function(err,walks) {
+		Event.find().sort('-created_at').exec(function(err,events) {
 			if (err) { return res.status(404).send(err); }
 			res.send(events);
 		});
@@ -15,7 +20,7 @@ module.exports = function(app) {
 
 
 	// CREATE EVENT
-	app.post('/api/events', auth.ensureAuthenticated, function (req,res) {
+	app.post('/api/events', function (req,res) {
 		Event.create(req.body, function(err, event){
         console.log('req.body.owner is: ', req.body.owner );
       console.log("event created is: ", event);

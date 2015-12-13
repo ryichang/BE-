@@ -1,0 +1,25 @@
+
+<div class="container">
+  
+<h1 class="text-center">Events</h1>
+
+
+<ul class='media-list'>
+  <li ng-repeat="event in events | orderBy:'date'" class='media'>
+  <div class="media-left">
+        <div class="container date-show">
+          <div class="row date-top text-center white-font black-back">{{event.date | date: 'MMMM'}}</div>
+         <!--  <div class="row date-middle text-center">{{event.date | date: 'd'}}</div>
+          <div class="row date-bottom text-center white-font black-back">{{event.date | date: 'EEEE'}}</div> -->
+        </div>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{event.name}} | <small>{{event.date | date: 'MMMM d' }} at {{event.date | date: 'h:mm a'}}</small></h4>
+      <p>Event at {{event.location.formatted_address}}</p>
+        
+    </div>
+      
+     
+  </li>
+</ul>
+</div>

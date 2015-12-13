@@ -14,4 +14,5 @@ angular.module('basic-auth')
     		$location.path('/profile');
     	});
     };
+    
   }]);

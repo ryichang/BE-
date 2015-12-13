@@ -6,7 +6,10 @@
   animation: 0.5s slideOutLeft;
 }
 */
-
+/*
+font-family: "fira-sans-2",sans-serif;
+font-style: normal;
+font-weight: 400;*/
 
 .jumbotron {
   padding:100px 0 130px 0;
@@ -27,6 +30,7 @@ a {
 .navbar {
   margin:0;
   border-radius: 0;
+  background: url('/static/img/stripe.png') repeat; 
 }
 
 .dropdown-form {
@@ -75,6 +79,10 @@ h4 {
  /* letter-spacing: -2px;*/
   max-width: 200px;
   color: white;
+}
+
+p {
+  font-family: 'Playfair Display', serif;
 }
 
 .form-group {
@@ -144,11 +152,23 @@ footer .heart {
   margin-bottom: 20px;
 }
 
-button {
+.card-img-top {
+  width: 100px;
+}
 
+#createEventButton {
+    max-width: 200px;
+    color: black;
+    font-size: 15px;
+    font-family: "acta-poster";
+    font-style: italic;
     background: transparent;
-    border: none !important;
+    border:0;
+    text-decoration: underline;
+   /* border: none !important;*/
 }​
+
+
 
 /*.splashfooter { 
     position: fixed;

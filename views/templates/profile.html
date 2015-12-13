@@ -2,18 +2,36 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-3"><br/>
-      <h4>{{user.username}}</h4>
-    </div>
-    <div class="col-sm-9">
-      <div class="page-header">
-        <ng-include src="'templates/newEvent'"></ng-include>
-        <h1>Events</h1>
-        <ng-include src="'templates/showEvent'"></ng-include>
+    <div class="col-md-2" id="profiletab"><br/>
+      <div class="card">
+        <img class="card-img-top img-circle center-block" src="http://i.imgur.com/7zEQjfQ.png" alt="http://i.imgur.com/7zEQjfQ.png">
+        <div class="card-block">
+          
+          <h4 class="card-title text-center">{{user.username}}</h4>
+          
+          <h4 class="card-text text-center">{{user.email}}</h4>
+        </div>
       </div>
     </div>
+
+
+      <div class="col-md-9">
+        <div class="page-header">
+       <!--    <ng-include src="'templates/newEvent'"></ng-include> -->
+          <div class="container" ng-controller="NewEventCtrl">
+            <button ng-click="createEventButton()" id="createEventButton" class="pull-left">Create an Event</button>
+              <div class="col-sm-9" ng-show="newEventForm">
+                <ng-include src="'templates/newEventForm'"></ng-include>
+              </div> 
+          </div>
+            <h1>Events</h1>
+          <ng-include src="'templates/showEvent'"></ng-include>
+        </div>
+      </div>
   </div>
 </div>
+
+
 
 
 

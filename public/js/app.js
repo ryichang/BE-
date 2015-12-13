@@ -4,7 +4,8 @@
 angular.module('basic-auth', ['basic-auth.services',
                               'ngRoute',
                               'ngResource',
-                              'satellizer'])
+                              'satellizer',
+                              'google.places'])
 
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $routeProvider.when('/', {
@@ -24,6 +25,16 @@ angular.module('basic-auth', ['basic-auth.services',
       $routeProvider.when('/events', {
         templateUrl: 'templates/event-index',
         controller: 'EventListCtrl'
+      });
+
+      // $routeProvider.when('createEvent', {
+      //   templateUrl: 'templates/newEventForm',
+      //   controller: 'NewEventCtrl'
+      // });
+
+      $routeProvider.when('/events/:id', {
+        templateUrl: 'templates/event-show',
+        controller: 'EventShowCtrl'
       });
 
       $routeProvider.otherwise({redirectTo: '/'});

@@ -1,0 +1,24 @@
+<script>
+	$(function() {
+	   $( "#datepicker" ).datepicker();
+	});
+</script>
+
+<div class="page-header">
+	<div class="card">
+	    <h4 class='pull-left'>Create an Event</h4>
+	        <form ng-submit="createEvent()">
+	              <div class='form-group'>
+	              
+	                <input class='form-control' type="text" ng-model="event.title" placeholder="Event Name" required autofocus>
+	                <input g-places-autocomplete options="autocompleteOptions" type="text" ng-model="event.location" placeholder="Location" class='form-control' required autofocus>
+	                <input class="form-control" type="text" id="datepicker" ng-model="event.date" placeholder="Date" autofocus> 
+
+		                <div class="text-right">
+		                  <button class='btn btn-default' type="submit" ng-click="newEvent()">Submit</button>
+		                </div>
+		          </div>
+	        </form>
+	</div>
+</div>
+
