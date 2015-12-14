@@ -18,6 +18,22 @@ module.exports = function(app) {
 		});
 	});
 
+	//get events owned by current user
+	app.get('/api/my-events', auth.ensureAuthenticated, function(req, res){
+		Event.find({owner: req.userId}).sort('-created_at').exec(function(err, events) {
+			if (err) { return res.status(404).send(err); }
+			res.send(events);
+		});
+	});
+
+	//get event by id
+	app.get('/api/events/:id', function(req, res){
+		Event.findById(req.params.id, function(err, event) {
+			if (err) { return res.status(404).send(err); }
+			console.log("event is: ", event);
+			res.send(event);
+		});
+	});
 
 	// CREATE EVENT
 	app.post('/api/events', function (req,res) {

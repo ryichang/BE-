@@ -29,7 +29,7 @@ angular.module('basic-auth.services', [])
 
   .factory('Event', function($resource, $window) {
   return $resource('/api/events/:id', { id: '@_id'}, {
-    myWalks: {
+    myEvents: {
       method: 'GET', url: '/api/my-events', isArray: true
     },
     update: {

@@ -23,7 +23,7 @@ angular.module('basic-auth', ['basic-auth.services',
       });
 
       $routeProvider.when('/events', {
-        templateUrl: 'templates/event-index',
+        templateUrl: 'templates/EventIndex',
         controller: 'EventListCtrl'
       });
 
@@ -33,7 +33,7 @@ angular.module('basic-auth', ['basic-auth.services',
       // });
 
       $routeProvider.when('/events/:id', {
-        templateUrl: 'templates/event-show',
+        templateUrl: 'templates/Eventshow',
         controller: 'EventShowCtrl'
       });
 

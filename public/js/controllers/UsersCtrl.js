@@ -8,6 +8,6 @@ angular.module('basic-auth')
       $scope.user = data.data;
     });
 
-    // $scope.myEvents = Event.myEvents();
+    $scope.myEvents = Event.myEvents();
     
   }]);

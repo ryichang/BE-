@@ -1,11 +1,11 @@
 
-var User = require('../models/user.js')
-  , qs = require('querystring')
-  , jwt = require('jwt-simple')
-  , request = require('request')
-  , config = require('../config.js')
-  , moment = require('moment')
-  , auth = require('./auth')
+var User = require('../models/user.js'),
+   qs = require('querystring'),
+   jwt = require('jwt-simple'),
+   request = require('request'),
+   config = require('../config.js'),
+   moment = require('moment'),
+   auth = require('./auth')
 
 module.exports = function(app) {
 
@@ -28,16 +28,16 @@ module.exports = function(app) {
   });
 
   app.post('/auth/login', function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     // changed from email to username
     User.findOne({ username: req.body.username }, '+password', function(err, user) {
-      console.log("here", err, user)
+      console.log("here", err, user);
       if (!user) {
         return res.status(401).send({ message: 'Wrong email or password' });
       }
       user.comparePassword(req.body.password, function(err, isMatch) {
-        console.log("there", err, isMatch)
-        console.log(isMatch)
+        console.log("there", err, isMatch);
+        console.log(isMatch);
         if (!isMatch) {
           return res.status(401).send({ message: 'Wrong email or password' });
         }

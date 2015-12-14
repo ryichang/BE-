@@ -55,6 +55,7 @@ angular.module('basic-auth')
       });
     };
 
+
 }])
 .controller('EventListCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', function(Event, Auth, $scope, $http, $timeout) {
   console.log('EventListCtrl active');
@@ -80,6 +81,12 @@ angular.module('basic-auth')
   //Get event
   $scope.event = Event.get({ id: $routeParams.id });
   console.log("event is: ", $scope.event);
+
+  $scope.deleteEvent = function(event, index) {
+        Event.remove( { id: event._id}, function(data) { 
+          $scope.events.splice(index, 1);
+        });
+      };
   
 }]);
 

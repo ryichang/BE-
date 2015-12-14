@@ -4,18 +4,18 @@
   <div class="row">
     <div class="col-md-2" id="profiletab"><br/>
       <div class="card">
-        <img class="card-img-top img-circle center-block" src="http://i.imgur.com/7zEQjfQ.png" alt="http://i.imgur.com/7zEQjfQ.png">
+        <img class="card-img-top img-circle center-block" src="http://placehold.it/100x100" alt="http://placehold.it/100x100">
         <div class="card-block">
           
           <h4 class="card-title text-center">{{user.username}}</h4>
           
-          <h4 class="card-text text-center">{{user.email}}</h4>
+          <p class="card-text text-center">{{user.email}}</p>
         </div>
       </div>
     </div>
 
 
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div class="page-header">
        <!--    <ng-include src="'templates/newEvent'"></ng-include> -->
           <div class="container" ng-controller="NewEventCtrl">
@@ -25,17 +25,31 @@
               </div> 
           </div>
             <h1>Events</h1>
-          <ng-include src="'templates/showEvent'"></ng-include>
+               <div class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
+                <div class="card">
+                  <h4>{{event.title}}</h4>
+                  <p>{{event.location.formatted_address}}</p>
+                  <p>{{event.date | date: 'MMMM d'}}</p>
+                <!--   <p><iframe src="{{event.location.url}}"></p> -->
+                  <!-- <a href="#" class='pull-right' ng-click="deleteEvent(event, $index)">
+                  <i class='icon ion-close-circled custom-icon'></i>
+                  </a> -->
+                 <!--  <ng-include src="'templates/eventshow'"></ng-include> -->
+                </div>
+                <br/>
+              </div>
         </div>
       </div>
+
+
   </div>
 </div>
 
 
 
+<!-- 
 
-
-     <!--  <div class="page-header">
+      <div class="page-header">
         <h1>Events</h1>
           <div class="card">
             <h3 class='pull-left'>Create an Event</h3>
@@ -67,4 +81,5 @@
           </div>
     </div>
       </div>
-    </div> -->
+    </div>
+ -->
