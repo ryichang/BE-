@@ -9,6 +9,7 @@ var EventSchema = Schema({
     created_at: { type: Date, default: Date.now() },
     updated_at: { type: Date },
     title: { type: String, required: true, trim: true },
+    description: { type: String, trim: true},
     location: { type: Object, required: true, trim: true },
     date: { type: Date, required: true, trim: true },
     owner: [{type: Schema.Types.ObjectId, ref: 'User'}],

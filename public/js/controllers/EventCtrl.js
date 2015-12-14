@@ -55,16 +55,33 @@ angular.module('basic-auth')
       });
     };
 
+     // $scope.eventShow = function(event) {
+     //    console.log('click even show');
+     //    Event.get({ id: event._id }, function(event) {
+     //      $scope.event = event;
+     //      console.log('event is; ', $scope.event);
+     //      $location.path('/events/' + event._id);
+     //    });
+     //  };
+
+
 
 }])
-.controller('EventListCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', function(Event, Auth, $scope, $http, $timeout) {
+.controller('EventListCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', '$location', '$window', function(Event, Auth, $scope, $http, $timeout, $location, $window) {
   console.log('EventListCtrl active');
   $scope.currentUser = Auth.currentUser();
   //Get events
       $scope.events = Event.query();
       console.log("events are: ", $scope.events);
 
-      $scope.eventShow = function(event) {
+       //go back button
+      $scope.backButton = function() {
+         $window.history.back();
+      };
+
+      //click listener to redirect to events:id page
+       $scope.eventShow = function(event) {
+        console.log('click event show');
         Event.get({ id: event._id }, function(event) {
           $scope.event = event;
           console.log('event is; ', $scope.event);

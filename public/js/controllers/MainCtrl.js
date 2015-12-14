@@ -4,7 +4,7 @@
 
 angular.module('basic-auth')
   .controller('MainCtrl', ['$scope', '$rootScope', '$location', '$auth', '$http',  function ($scope, $rootScope, $location, $auth, $http) {
-
+      
     // LOGIN/REGISTER
     $scope.user = {};
 

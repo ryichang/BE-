@@ -25,9 +25,10 @@
               </div> 
           </div>
             <h1>Events</h1>
-               <div class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
+               <div ng-controller="EventListCtrl" class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
                 <div class="card">
                   <h4>{{event.title}}</h4>
+                  <p>{{event.description}}</p>
                   <p>{{event.location.formatted_address}}</p>
                   <p>{{event.date | date: 'MMMM d'}}</p>
                 <!--   <p><iframe src="{{event.location.url}}"></p> -->
