@@ -22,8 +22,6 @@ angular.module('basic-auth')
       //Get events
       $scope.events = Event.query();
       
-      
-
 
       //find current user
       $scope.currentUser = Auth.currentUser();
@@ -74,10 +72,11 @@ angular.module('basic-auth')
       $scope.events = Event.query();
       console.log("events are: ", $scope.events);
 
-       //go back button
-      $scope.backButton = function() {
-         $window.history.back();
-      };
+      //  go back button
+      // $scope.backButton = function() {
+      //    $window.history.back();
+      // };
+
 
       //click listener to redirect to events:id page
        $scope.eventShow = function(event) {
@@ -90,7 +89,7 @@ angular.module('basic-auth')
       };
 }])
 
-.controller('EventShowCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', '$location', '$routeParams', function(Event, Auth, $scope, $http, $timeout, $location, $routeParams) {
+.controller('EventShowCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', '$location', '$routeParams', '$window', function(Event, Auth, $scope, $http, $timeout, $location, $routeParams, $window) {
   console.log('EventShowCtrl active');
 
   $scope.currentUser = Auth.currentUser();
@@ -99,12 +98,48 @@ angular.module('basic-auth')
   $scope.event = Event.get({ id: $routeParams.id });
   console.log("event is: ", $scope.event);
 
-  $scope.deleteEvent = function(event, index) {
-        Event.remove( { id: event._id}, function(data) { 
-          $scope.events.splice(index, 1);
+     //go back button
+      $scope.backButton = function() {
+         $window.history.back();
+      };
+
+
+    //show edit event form when create event button is clicked
+      $scope.EventEdit = false;
+      $scope.editEventButton = function() {
+        
+          $scope.EventEdit = true;
+
+        console.log('Event edit button clicked');
+        console.log('$scope.editEventForm is: ', $scope.EventEdit);
+      };
+
+      $scope.updateEvent = function(event) {
+        console.log('event in form function is:', event);
+        console.log( $routeParams.id);
+        Event.update({ id: $routeParams.id }, event, function() {
+          console.log('event is: ', event);
+          $scope.event = event;
+          $scope.event.$update(function(event) {
+            console.log('scope.event.update worked');
+          });
+            $location.path('/events/' + event._id);
         });
       };
-  
+
+      $scope.deleteEvent = function(event) {
+        Event.delete( { id: $routeParams.id}, function(event) { 
+          $location.path('/events/' + event._id);
+        });
+      };
+
+      $scope.addRsvp = function(event) {
+        var rsvp = {user:$scope.currentUser, event:event}
+        $http.post( '/api/rsvps', rsvp, function (data) {
+          console.log(data);
+        });
+      };
+
 }]);
 
 

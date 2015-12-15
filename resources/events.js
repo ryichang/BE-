@@ -1,6 +1,7 @@
 
 var Event = require('../models/event.js'),
 	User = require('../models/user.js'),
+	Rsvp = require('../models/rsvp.js'),
 	qs = require('querystring'), 
     auth = require('./auth'),
     request = require('request'),
@@ -44,6 +45,42 @@ module.exports = function(app) {
         event.owner.push(req.body.event);
         console.log('after push event is: ', event);
       res.status(201).send(event);
+	   });
+	});
+
+	//UPDATE
+	app.put('/api/events/:id', function(req,res){
+		console.log('hitting api/events/:id path');
+		Event.findOneAndUpdate({ _id: req.params.id}, req.body, { new: true}, function (err, event) {
+			console.log(event);
+			if (err) {return res.send(err); }
+			res.send(event);
+		});
+	});
+
+	 //DELETE
+	  app.delete('/api/events/:id', function(req,res) {
+	    Event.findById({ _id: req.params.id}).remove().exec();
+	    res.sendStatus(200);
+	  });
+
+	  app.get('/api/rsvps', function(req, res){
+		// INDEX - GET ALL RSVPS
+		Rsvp.find().sort('-created_at').exec(function(err,rsvps) {
+			if (err) { return res.status(404).send(err); }
+			res.send(rsvps);
+		});
+	});
+
+	  app.post('/api/rsvps', function (req,res) {
+		Rsvp.create(req.body, function(err, rsvp){
+        console.log('req.body.owner is: ', req.body );
+      console.log("event created is: ", rsvp);
+      if (err) { return res.send(err); }
+        rsvp.user = req.body.user;
+        rsvp.event = req.body.event;
+        console.log('after push event is: ', rsvp);
+      res.status(201).send(rsvp);
 	   });
 	});
 };

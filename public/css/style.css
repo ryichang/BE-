@@ -6,8 +6,8 @@
   animation: 0.5s slideOutLeft;
 }
 */
-/*
-font-family: "fira-sans-2",sans-serif;
+
+/*font-family: "fira-sans-2",sans-serif;
 font-style: normal;
 font-weight: 400;*/
 
@@ -46,7 +46,24 @@ a {
 
 .ui-datepicker {
   background: #231e1e;
+}
 
+.calendar-icon {
+  width: 1.75em;
+  border: 2px solid black;
+  border-top: 10px solid black;
+  background: white;
+  font-family: 'acta-poster';
+/*  font-style: bold;*/
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5rem;
+  float: left;
+  color: black;
+}
+
+.ion-ios-location {
+  float: left;
 }
 
 body {
@@ -128,7 +145,8 @@ footer .heart {
 
 .custom-icon {
   font-size: 20px;
-  color : #cf2e31;
+ /* color : #cf2e31;*/
+  color: white;
 }
 
 
@@ -166,6 +184,10 @@ footer .heart {
   width: 100px;
 }
 
+.ng-scope {
+     background-image: url("/public/img/flamingopink.jpg");
+}
+
 #createEventButton {
     max-width: 200px;
     color: black;
@@ -174,11 +196,21 @@ footer .heart {
     font-style: italic;
     background: transparent;
     border:0;
-    text-decoration: underline;
+/*    text-decoration: underline;*/
    /* border: none !important;*/
 }​
 
-
+#rsvpEventButton {
+    max-width: 200px;
+    color: white;
+    font-size: 15px;
+    font-family: "acta-poster";
+    font-style: italic;
+    background: transparent;
+    border:0;
+/*    text-decoration: underline;*/
+   /* border: none !important;*/
+}​
 
 /*.splashfooter { 
     position: fixed;

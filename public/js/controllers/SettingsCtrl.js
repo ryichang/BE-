@@ -8,7 +8,7 @@ angular.module('basic-auth')
       $scope.user = data.data;
     });
 
-    $scope.updateUser = function() {
+    $scope.updateUser = function(user) {
     	$http.put('/api/me', $scope.user ).then(function(data){
     		console.log(data);
     		$location.path('/profile');
@@ -16,3 +16,6 @@ angular.module('basic-auth')
     };
     
   }]);
+
+
+  

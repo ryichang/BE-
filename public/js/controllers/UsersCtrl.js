@@ -10,5 +10,13 @@ angular.module('basic-auth')
     });
 
     $scope.myEvents = Event.myEvents();
+
+    $scope.eventShow = function(event) {
+    	Event.get({ id: event._id }, function(event) {
+    		$scope.event = event;
+    		console.log('event is: ', $scope.event);
+    		$location.path('/events/' + event._id);
+    	});
+    };
     
   }]);

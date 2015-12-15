@@ -13,8 +13,8 @@ var UserSchema = new Schema({
   , username      : { type: String, required: true, unique: true, trim: true}
   , email         : { type: String, required: true, unique: true, trim: true, set: toLower }
   , password      : { type: String, select: false }
-  , first         : { type: String, trim: true }
-  , last          : { type: String, trim: true }
+  , first         : { type: String, required: true, trim: true }
+  , last          : { type: String, required: true, trim: true }
   , events        : [{type: Schema.Types.ObjectId, ref: 'Event'}]
 });
 

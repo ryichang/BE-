@@ -10,6 +10,7 @@
           <h4 class="card-title text-center">{{user.username}}</h4>
           
           <p class="card-text text-center">{{user.email}}</p>
+
         </div>
       </div>
     </div>
@@ -25,13 +26,16 @@
               </div> 
           </div>
             <h1>Events</h1>
-               <div ng-controller="EventListCtrl" class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
+               <div ng-controller="EventListCtrl" class='col-sm-12 col-md-6 col-lg-6'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
                 <div class="card">
                   <h4>{{event.title}}</h4>
                   <p>{{event.description}}</p>
-                  <p>{{event.location.formatted_address}}</p>
-                  <p>{{event.date | date: 'MMMM d'}}</p>
-                <!--   <p><iframe src="{{event.location.url}}"></p> -->
+                  <!-- <i class="ion-ios-location custom-icon"></i> -->
+                  <p><!-- &nbsp; -->{{event.location.formatted_address}}</p>
+                  <!-- <div class="calendar-icon">{{event.date | date: 'dd'}}</div> -->
+                  <p><!-- &nbsp; -->{{event.date | date: 'MMMM d'}}</p>
+                 
+              <!--     <p><iframe src="{{event.location.url}}"></p> -->
                   <!-- <a href="#" class='pull-right' ng-click="deleteEvent(event, $index)">
                   <i class='icon ion-close-circled custom-icon'></i>
                   </a> -->
@@ -47,40 +51,3 @@
 </div>
 
 
-
-<!-- 
-
-      <div class="page-header">
-        <h1>Events</h1>
-          <div class="card">
-            <h3 class='pull-left'>Create an Event</h3>
-            <form ng-submit="createEvent()">
-              <div class='form-group'>
-                <input class='form-control' type="text" ng-model="event.title" placeholder="Event Name" required autofocus>
-                <input class='form-control' type="text" ng-model="event.location" placeholder="Location" required autofocus>
-                <input class="form-control" type="text" id="datepicker" ng-model="event.date" placeholder="Date" autofocus> 
-              
-                <div class="text-right">
-                  <button class='btn btn-default' type="submit">Create</button>
-                </div>
-            </form>
-          </div>
-          <br> 
-
-
-
-
-          <div class='col-sm-6 col-md-6 col-lg-4'  ng-repeat="event in events">
-            <div class="card">
-              <h1>{{event.title}}</h1>
-              <h1>{{event.location}}</h1>
-              <h1>{{event.date}}</h1>
-              <a href="#" class='pull-right' ng-click="deleteEvent(event, $index)">
-              <i class='icon ion-close-circled custom-icon'></i>
-              </a>
-            </div>
-          </div>
-    </div>
-      </div>
-    </div>
- -->
