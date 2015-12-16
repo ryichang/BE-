@@ -1,11 +1,13 @@
-<div class="card">
-  <h1 class='pull-left'>{{Rsvp.User.username}}</h1>
-  <form ng-submit="createComment()">
-    <div class='form-group'>
-      <textarea class='form-control' ng-model="Rsvp.comment" placeholder="Comment" Autofocus ></textarea>
-    </div>
-      <div class="text-right">
-        <button type="submit">Submit</button>
-      </div>
-  </form>
+<class='col-sm-12 col-md-6 col-lg-6'  ng-repeat="rsvp in Rsvps" ng-click="eventShow(event)">
+	<div class="card">
+	  <h1 class='pull-left'>{{Rsvp.User.username}}</h1>
+	  <form ng-submit="createComment()">
+	    <div class='form-group'>
+	      <textarea class='form-control' ng-model="Rsvp.comment" placeholder="Comment" Autofocus ></textarea>
+	    </div>
+	      <div class="text-right">
+	        <button type="submit">Submit</button>
+	      </div>
+	  </form>
+	</div>
 </div>

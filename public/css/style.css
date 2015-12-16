@@ -13,6 +13,7 @@ font-weight: 400;*/
 
 .jumbotron {
   padding:100px 0 130px 0;
+  z-index:900;
 }
 
 .navbar-right {
@@ -27,10 +28,38 @@ a {
     cursor: pointer;
 }
 
+#nav {
+   background-color: #88a6a4;
+/*   background-color: rbga(98, 68, 9, .975);*/
+   background-image: url("/img/stripe.png");
+   /*min-height: 2.94118rem;
+   line-height: 83.92157%;*/
+   border-bottom: 1px solid rgba(0,0,0,.160);
+   background: rbga(255, 255, 255, .975);
+   z-index: 99;
+   transition: transform .11s ease-out,background .5s ease-out;
+   /*position: fixed;*/
+   top: 0;
+   left: 0;
+   z-index: 9999;
+   width: 100%;
+   height: 50px;
+  
+}
+
+/*
+#splashtext {
+  margin-top: -400px;
+  z-index: 1000;
+  position: absolute;
+}*/
+
 .navbar {
   margin:0;
   border-radius: 0;
-  background-color: #00a087;
+ /*
+  background-image: url("/img/stripe.png");*/
+  
  /* position: fixed;
   top: 0;
   left: 0;
@@ -106,6 +135,15 @@ h4 {
 
 p {
   font-family: 'Playfair Display', serif;
+}
+
+.page        {
+    bottom:0; 
+    padding-top:200px;
+    position:absolute; 
+    text-align:center;
+    top:0;  
+    width:100%; 
 }
 
 .form-group {
@@ -184,10 +222,10 @@ footer .heart {
   width: 100px;
 }
 
-.ng-scope {
-     background-image: url("/public/img/flamingopink.jpg");
+/*.ng-scope {
+     background-image: url("/img/flamingopink.jpg");
 }
-
+*/
 #createEventButton {
     max-width: 200px;
     color: black;
@@ -212,8 +250,26 @@ footer .heart {
    /* border: none !important;*/
 }​
 
-/*.splashfooter { 
+.fullscreen-bg {
     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*#bgvid { 
+    position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -226,5 +282,5 @@ footer .heart {
     background: url(//api.twistage.com/videos/384ea219d7782/formats/webm_720/play.webm) no-repeat;
     background-size: cover; 
 }
-*/
 
+*/

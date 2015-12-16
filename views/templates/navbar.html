@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id='nav'>
   <div class="navbar-header">
     <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><h1>PeckBox</h1></a>
   </div>
@@ -18,7 +18,7 @@
               <label for="">Password</label>
               <input type="password" ng-model="user.password" class="form-control"/>
             </div>
-            <button type="submit" ng-click="login()" class="btn btn-info">Log In</button>
+            <button type="submit" ng-click="login()" class="btn btn-link">Log In</button>
           </form>
         </div>
       </li>
@@ -52,7 +52,7 @@
                 <label for="">Confirm Password</label>
                 <input type="password" ng-model="user.confirm" class="form-control"/>
               </div>
-              <button type="submit" ng-click="signup()" class="btn btn-info">Sign Up</button>
+              <button type="submit" ng-click="signup()" class="btn btn-link">Sign Up</button>
             </form>
         </div>
       </li>
@@ -102,8 +102,8 @@
         </form>
       </div>
       <div class="modal-footer"><a ng-click="signupMode = true" ng-hide="signupMode" class="btn btn-link">Sign Up</a>
-        <button type="submit" ng-hide="signupMode" ng-click="login()" class="btn btn-info">Log In</button><a ng-click="signupMode = false" ng-show="signupMode" class="btn btn-link">Login</a>
-        <button type="submit" ng-cloak="" ng-show="signupMode" ng-click="signup()" class="btn btn-info">Sign Up</button>
+        <button type="submit" ng-hide="signupMode" ng-click="login()" class="btn btn-link">Log In</button><a ng-click="signupMode = false" ng-show="signupMode" class="btn btn-link">Login</a>
+        <button type="submit" ng-cloak="" ng-show="signupMode" ng-click="signup()" class="btn btn-link">Sign Up</button>
       </div>
     </div>
   </div>

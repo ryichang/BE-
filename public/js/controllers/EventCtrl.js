@@ -113,7 +113,7 @@ angular.module('basic-auth')
         console.log('Event edit button clicked');
         console.log('$scope.editEventForm is: ', $scope.EventEdit);
       };
-
+      //Update Event
       $scope.updateEvent = function(event) {
         console.log('event in form function is:', event);
         console.log( $routeParams.id);
@@ -126,20 +126,30 @@ angular.module('basic-auth')
             $location.path('/events/' + event._id);
         });
       };
-
+      //Delete Event
       $scope.deleteEvent = function(event) {
         Event.delete( { id: $routeParams.id}, function(event) { 
           $location.path('/events/' + event._id);
         });
       };
 
+      //add Rsvp
       $scope.addRsvp = function(event) {
-        var rsvp = {user:$scope.currentUser, event:event}
+        console.log(event);
+        var rsvp = {user:$scope.currentUser, event:event};
         $http.post( '/api/rsvps', rsvp, function (data) {
           console.log(data);
         });
       };
 
+      $scope.rsvpShow = function(event) {
+        console.log('click event show');
+        Rsvp.get({ id: event._id }, function(rsvp) {
+          $scope.rsvp = rsvp;
+          console.log('rsvp is; ', $scope.rsvp);
+          $location.path('/events/' + event._id);
+        });
+      };
 }]);
 
 
@@ -147,7 +157,19 @@ angular.module('basic-auth')
 
 
 
+// $scope.event = {};
+//       $scope.newEvent = function() {
+//       console.log('scope.event is ', $scope.event);
+//       $scope.event.owner = $scope.currentUser;
+//       var event = new Event($scope.event);
+//       event.$save(function(data) {
+//         $scope.events.unshift(data);
+//         $scope.event = {};
+//         $scope.createEventForm = false;
+//         console.log('after save createEventForm is: ', $scope.createEventForm);
 
+//       });
+//     };
 
 
 

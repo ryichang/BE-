@@ -1,4 +1,5 @@
 <div class="container">
+
 	<div class='col-sm-6 col-md-6 col-lg-4'>
       <div class="card">
           <button type="button" class="close" ng-click="backButton()" aria-label="Close">
@@ -8,12 +9,17 @@
               <p>{{event.description}}</p>
               <p>{{event.location.formatted_address}}</p>
               <p>{{event.date | date: 'MMMM d'}}</p>
+            
               <!-- <iframe ng-src="{{event.location.url}}"></iframe> -->
               <div class="text-right">
           <i class='icon ion-edit custom-icon' class="pull-left" ng-click="editEventButton()" aria-label="Close">
           <span aria-hidden="true"></i></span>
 
           <i class='ion-plus-circled custom-icon' class="pull-right" ng-click="addRsvp(event)" aria-label="Close">
+          <span aria-hidden="true"></i></span>
+
+
+          <i class='ion-trash-a custom-icon' class="pull-right" ng-click="rsvpShow(rsvp)" aria-label="Close">
           <span aria-hidden="true"></i></span>
 
          <!--  <button class='btn' class="pull-right" ng-click="addRsvp(event)" aria-label="Close">
@@ -24,8 +30,6 @@
               <div class="col-sm-6" ng-show="EventEdit">
                 <ng-include src="'templates/EventEdit'"></ng-include>
               </div> 
-
-<!-- <ng-include src="templates/Commentshow"></ng-include> -->
 </div>
 
 

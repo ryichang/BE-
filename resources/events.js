@@ -71,12 +71,15 @@ module.exports = function(app) {
 			res.send(rsvps);
 		});
 	});
-
+	  // CREATE RSVP
 	  app.post('/api/rsvps', function (req,res) {
+
 		Rsvp.create(req.body, function(err, rsvp){
         console.log('req.body.owner is: ', req.body );
       console.log("event created is: ", rsvp);
       if (err) { return res.send(err); }
+      	console.log(rsvp.isConfirmed);
+      	rsvp.isConfirmed = req.body.isConfirmed;
         rsvp.user = req.body.user;
         rsvp.event = req.body.event;
         console.log('after push event is: ', rsvp);
