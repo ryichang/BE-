@@ -19,16 +19,17 @@
           <span aria-hidden="true"></i></span>
 
 
-          <i class='ion-trash-a custom-icon' class="pull-right" ng-click="rsvpShow(rsvp)" aria-label="Close">
+          <i class='ion-chatbubbles custom-icon' class="pull-right" ng-click="rsvpShowButton()" aria-label="Close">
           <span aria-hidden="true"></i></span>
 
-         <!--  <button class='btn' class="pull-right" ng-click="addRsvp(event)" aria-label="Close">
-          <span aria-hidden="true">RSVP</span> -->
               </div>
       </div>
   </div>
               <div class="col-sm-6" ng-show="EventEdit">
                 <ng-include src="'templates/EventEdit'"></ng-include>
+              </div> 
+              <div class="col-sm-6" ng-show="RsvpShow">
+                <ng-include src="'templates/RsvpShow'"></ng-include>
               </div> 
 </div>
 

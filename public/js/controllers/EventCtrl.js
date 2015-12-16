@@ -142,7 +142,7 @@ angular.module('basic-auth')
         });
       };
 
-      $scope.rsvpShow = function(event) {
+      $scope.rsvpShow = function() {
         console.log('click event show');
         Rsvp.get({ id: event._id }, function(rsvp) {
           $scope.rsvp = rsvp;
@@ -150,6 +150,17 @@ angular.module('basic-auth')
           $location.path('/events/' + event._id);
         });
       };
+
+      $scope.RsvpShow = false;
+      $scope.rsvpShowButton = function() {
+        
+          $scope.RsvpShow = true;
+
+        console.log('Rsvp show button clicked');
+        console.log('$scope.rsvpShow is: ', $scope.RsvpShow);
+      };
+
+
 }]);
 
 

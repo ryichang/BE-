@@ -59,8 +59,8 @@ a {
   border-radius: 0;
  /*
   background-image: url("/img/stripe.png");*/
-  
- /* position: fixed;
+  /*
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -78,17 +78,20 @@ a {
 }
 
 .calendar-icon {
-  width: 1.75em;
+  width: 2.2em;
   border: 2px solid black;
   border-top: 10px solid black;
   background: white;
   font-family: 'acta-poster';
-/*  font-style: bold;*/
+  font-style: italic;
+  font-style: bold;
   text-transform: uppercase;
+  font-size: 15px;
   text-align: center;
-  line-height: 1.5rem;
-  float: left;
+  line-height: 3rem;
+  float: right;
   color: black;
+  z-index: 100;
 }
 
 .ion-ios-location {
@@ -268,8 +271,8 @@ footer .heart {
     height: 100%;
 }
 
-/*#bgvid { 
-    position: absolute;
+video#bgvid { 
+    position: fixed;
     top: 50%;
     left: 50%;
     min-width: 100%;
@@ -279,8 +282,6 @@ footer .heart {
     z-index: -100;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(//api.twistage.com/videos/384ea219d7782/formats/webm_720/play.webm) no-repeat;
+    background: url(polina.jpg) no-repeat;
     background-size: cover; 
 }
-
-*/

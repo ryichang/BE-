@@ -37,10 +37,10 @@ angular.module('basic-auth', ['basic-auth.services',
         controller: 'EventShowCtrl'
       });
 
-      // $routeProvider.when('/rsvps/:id', {
-      //   templateUrl: 'templates/Commentshow',
-      //   controller: 'CommentShowCtrl'
-      // });
+      $routeProvider.when('/rsvps/:id', {
+        templateUrl: 'templates/RsvpShow',
+        controller: 'EventShowCtrl'
+      });
 
       // $routeProvider.when('/events/:id/edit', {
       //   tempalteUrl: 'templates/EditEventForm',
