@@ -31,15 +31,10 @@
                   <div class="calendar-icon">{{event.date | date: 'dd'}}</div>
                   <h4>{{event.title}}</h4>
                   <p>{{event.description}}</p>
-                  <!-- <i class="ion-ios-location custom-icon"></i> -->
-                  <p><!-- &nbsp; -->{{event.location.formatted_address}}</p>
-                  <p>&nbsp;{{event.date | date: 'MMMM d'}}</p>
-                 
-              <!--     <p><iframe src="{{event.location.url}}"></p> -->
-                  <!-- <a href="#" class='pull-right' ng-click="deleteEvent(event, $index)">
-                  <i class='icon ion-close-circled custom-icon'></i>
-                  </a> -->
-                 <!--  <ng-include src="'templates/eventshow'"></ng-include> -->
+                  <p>{{event.location.formatted_address}}</p>
+                  <p>{{event.date | date: 'MMMM d'}}</p>
+            <!--      
+                  <p><iframe src="{{event.location.url}}"></p> -->
                 </div>
                 <br/>
               </div>

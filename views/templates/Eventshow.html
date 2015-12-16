@@ -9,6 +9,7 @@
               <p>{{event.description}}</p>
               <p>{{event.location.formatted_address}}</p>
               <p>{{event.date | date: 'MMMM d'}}</p>
+
             
               <!-- <iframe ng-src="{{event.location.url}}"></iframe> -->
               <div class="text-right">
@@ -21,18 +22,31 @@
 
           <i class='ion-chatbubbles custom-icon' class="pull-right" ng-click="rsvpShowButton()" aria-label="Close">
           <span aria-hidden="true"></i></span>
-
+  
               </div>
       </div>
   </div>
+
               <div class="col-sm-6" ng-show="EventEdit">
                 <ng-include src="'templates/EventEdit'"></ng-include>
               </div> 
-              <div class="col-sm-6" ng-show="RsvpShow">
-                <ng-include src="'templates/RsvpShow'"></ng-include>
+
+              <div class="col-sm-3" ng-repeat="rsvp in event.rsvps">
+                  <div class="card">
+                    <h4 class='pull-left'>{{rsvp.user}}</h4>
+                    <p>{{rsvp.comment}}</p>
+                    <form ng-submit="createComment()">
+                     <input class='form-control' type="text" ng-model="rsvp.comment" placeholder="Comment" autofocus>
+                        <div class="text-right">
+                          <button type="submit" class="btn btn-link">Submit</button>
+                        </div>
+                        </form>
+                  </div>
               </div> 
+
 </div>
 
+<!-- {{event.rsvps}} -->
 
 
 

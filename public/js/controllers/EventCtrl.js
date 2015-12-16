@@ -91,8 +91,8 @@ angular.module('basic-auth')
 
 .controller('EventShowCtrl', ['Event', 'Auth', '$scope', '$http', '$timeout', '$location', '$routeParams', '$window', function(Event, Auth, $scope, $http, $timeout, $location, $routeParams, $window) {
   console.log('EventShowCtrl active');
-
   $scope.currentUser = Auth.currentUser();
+
 
   //Get event
   $scope.event = Event.get({ id: $routeParams.id });
@@ -135,30 +135,31 @@ angular.module('basic-auth')
 
       //add Rsvp
       $scope.addRsvp = function(event) {
-        console.log(event);
-        var rsvp = {user:$scope.currentUser, event:event};
+        console.log(event);  //=> resource
+        var rsvp = { eventId: event._id };
         $http.post( '/api/rsvps', rsvp, function (data) {
-          console.log(data);
+          console.log("here's the rsvp:", data);
         });
       };
 
-      $scope.rsvpShow = function() {
-        console.log('click event show');
-        Rsvp.get({ id: event._id }, function(rsvp) {
-          $scope.rsvp = rsvp;
-          console.log('rsvp is; ', $scope.rsvp);
-          $location.path('/events/' + event._id);
-        });
-      };
+      // $scope.rsvpShow = function() {
+      //   console.log('click event show');
+      //   Rsvp.get({ id: event._id }, function(rsvp) {
+      //     $scope.rsvp = rsvp;
+      //     console.log('rsvp is; ', $scope.rsvp);
+      //     $location.path('/events/' + event._id);
+      //   });
+      // };
 
-      $scope.RsvpShow = false;
-      $scope.rsvpShowButton = function() {
+      //show RsvpShow Page when clicked
+      // $scope.RsvpShow = false;
+      // $scope.rsvpShowButton = function() {
         
-          $scope.RsvpShow = true;
+      //   $scope.RsvpShow = true;
 
-        console.log('Rsvp show button clicked');
-        console.log('$scope.rsvpShow is: ', $scope.RsvpShow);
-      };
+      //   console.log('Rsvp show button clicked');
+      //   console.log('$scope.rsvpShow is: ', $scope.RsvpShow);
+      // };
 
 
 }]);

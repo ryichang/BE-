@@ -36,5 +36,17 @@ angular.module('basic-auth.services', [])
       method: 'PUT' // this method issues a PUT request
     }
   });
+})
 
+  .factory('Rsvp', function($resource, $window) {
+  return $resource('/api/rsvps/:id', { id: '@_id'}, {
+    myEvents: {
+      method: 'GET', url: '/api/rsvps', isArray: true
+    },
+    update: {
+      method: 'PUT' // this method issues a PUT request
+    }
+  });
+  
+  
 });

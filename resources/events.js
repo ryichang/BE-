@@ -29,7 +29,7 @@ module.exports = function(app) {
 
 	//get event by id
 	app.get('/api/events/:id', function(req, res){
-		Event.findById(req.params.id, function(err, event) {
+		Event.findById(req.params.id).populate('rsvps').exec(function(err, event) {
 			if (err) { return res.status(404).send(err); }
 			console.log("event is: ", event);
 			res.send(event);
@@ -72,18 +72,15 @@ module.exports = function(app) {
 		});
 	});
 	  // CREATE RSVP
-	  app.post('/api/rsvps', function (req,res) {
-
-		Rsvp.create(req.body, function(err, rsvp){
-        console.log('req.body.owner is: ', req.body );
-      console.log("event created is: ", rsvp);
-      if (err) { return res.send(err); }
-      	console.log(rsvp.isConfirmed);
-      	rsvp.isConfirmed = req.body.isConfirmed;
-        rsvp.user = req.body.user;
-        rsvp.event = req.body.event;
-        console.log('after push event is: ', rsvp);
-      res.status(201).send(rsvp);
+	app.post('/api/rsvps', auth.ensureAuthenticated, function (req,res) {
+		Rsvp.create({user: req.userId}, function(err, rsvp){
+			if (err) { return res.send(err); }
+			Event.findById(req.body.eventId).exec(function(err, event) {
+				event.rsvps.push(rsvp);
+				event.save(function(err) {
+					res.status(201).send(rsvp);
+				});
+			});
 	   });
 	});
 };

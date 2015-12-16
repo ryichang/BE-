@@ -1,20 +1,17 @@
-# MEAN Auth Seed
+# PeckBox
 
 ## What's inside
 
 1. Express, Mongo, Node, Angular 1.4
 2. JWT token authentication (from Satellizer)
 
-## How to Get Started
+##Scope 
 
-1. fork and clone this repo
-2. run `npm install`
-3. run `nodemon`
-
-## Customize Auth
-
-1. Go to your `.env` file and change your TOKEN_SECRET variable. [dotenv docs](https://www.npmjs.com/package/dotenv)
-2. add `.env` to your `.gitignore` file.
+1. Create a user 
+2. Allow users to create events
+3. Allow users to edit events
+4. Allow users to RSVP
+5. Allow users to comment
 
 ## Adding Custom Authorizors (Facebook, Google, etc)
 
@@ -22,4 +19,3 @@
 
 
 
-# mean-auth-html

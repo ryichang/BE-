@@ -17,13 +17,13 @@ angular.module('basic-auth')
       console.log('current user is: ', $scope.currentUser);
 
       //show new rsvp chat when create event button is clicked
-      $scope.RsvpShow = false;
-      $scope.rsvpShow = function() {
+      // $scope.RsvpShow = false;
+      // $scope.rsvpShow = function() {
         
-          $scope.RsvpShow = true;
+      //     $scope.RsvpShow = true;
           
      
-        console.log('create rsvp button clicked');
-        console.log('$scope.RsvpShow is: ', $scope.RsvpShow);
-      };
+      //   console.log('create rsvp button clicked');
+      //   console.log('$scope.RsvpShow is: ', $scope.RsvpShow);
+      // };
 }]);
