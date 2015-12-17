@@ -10,6 +10,7 @@
               <p>{{event.location.formatted_address}}</p>
               <p>{{event.date | date: 'MMMM d'}}</p>
 
+
             
               <!-- <iframe ng-src="{{event.location.url}}"></iframe> -->
               <div class="text-right">
@@ -33,9 +34,9 @@
 
               <div class="col-sm-3" ng-repeat="rsvp in event.rsvps">
                   <div class="card">
-                    <h4 class='pull-left'>{{rsvp.user}}</h4>
+                    <h4 class='pull-left'>{{rsvp.username}}</h4>
                     <p>{{rsvp.comment}}</p>
-                    <form ng-submit="createComment()">
+                    <form ng-submit="createComment(rsvp)">
                      <input class='form-control' type="text" ng-model="rsvp.comment" placeholder="Comment" autofocus>
                         <div class="text-right">
                           <button type="submit" class="btn btn-link">Submit</button>

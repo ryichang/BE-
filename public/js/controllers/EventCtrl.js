@@ -135,13 +135,30 @@ angular.module('basic-auth')
 
       //add Rsvp
       $scope.addRsvp = function(event) {
+        console.log($scope.currentUser.username)
         console.log(event);  //=> resource
-        var rsvp = { eventId: event._id };
+        var rsvp = { eventId: event._id, username: $scope.currentUser.username};
         $http.post( '/api/rsvps', rsvp, function (data) {
           console.log("here's the rsvp:", data);
         });
       };
 
+      $scope.comment = {};
+      $scope.createComment = function(rsvp) {
+        console.log("rsvp id is :", rsvp)
+
+        $http.post('/api/rsvps/comments', { id: rsvp._id , comment: rsvp.comment}, function(data) {
+        console.log("data is:", data)
+        });
+      // console.log('scope.comment is ', $scope.comment);
+      // $scope.comment.owner = $scope.currentUser;
+      // var comment = new Comment($scope.comment);
+      // comment.$save(function(data) {
+      //   $scope.comments.unshift(data);
+      //   $scope.comment = {};
+      //   console.log('after save createEventForm is: ', $scope.createEventForm);
+      //   });
+      };
       // $scope.rsvpShow = function() {
       //   console.log('click event show');
       //   Rsvp.get({ id: event._id }, function(rsvp) {

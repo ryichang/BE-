@@ -73,7 +73,9 @@ module.exports = function(app) {
 	});
 	  // CREATE RSVP
 	app.post('/api/rsvps', auth.ensureAuthenticated, function (req,res) {
-		Rsvp.create({user: req.userId}, function(err, rsvp){
+		console.log("req.body is", req.body)
+		Rsvp.create({user: req.userId, username: req.body.username},  function(err, rsvp){
+			console.log(rsvp)
 			if (err) { return res.send(err); }
 			Event.findById(req.body.eventId).exec(function(err, event) {
 				event.rsvps.push(rsvp);
@@ -82,5 +84,12 @@ module.exports = function(app) {
 				});
 			});
 	   });
+	});
+	app.post('/api/rsvps/comments', auth.ensureAuthenticated, function (req,res) {
+		console.log("req.body is", req.body.comment);
+		Rsvp.findOneAndUpdate({ _id: req.body.id}, {comment: req.body.comment}, function (err, comment) {
+			console.log("comment is", comment);
+			res.send(comment);
+	});
 	});
 };

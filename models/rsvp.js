@@ -10,6 +10,7 @@ var RsvpSchema = Schema({
     updated_at: { type: Date },
     comment: { type: String, trim: true },
     user: {type: Schema.Types.ObjectId, ref: 'User'},
+    username: { type: String},
     isConfirmed: { type:Boolean, default: false}
 });
 

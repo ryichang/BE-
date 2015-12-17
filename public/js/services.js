@@ -9,11 +9,12 @@ angular.module('basic-auth.services', [])
     return {
       currentUser: function() {
         var user = $auth.getPayload();
+
         var currentUser = {
           _id: user.sub,
           // email: user.email,
           // picture: user.picture,
-          // username: user.usermame
+          username: user.username
         };
         return currentUser;
       }
