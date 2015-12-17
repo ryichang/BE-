@@ -58,17 +58,6 @@ require('./resources/events')(app);
 // redirect all others to the index (HTML5 history)
 app.get('*', resources.index);
 
-// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-// var port = process.env.port || 1337;
-
-// var server = require('http').createServer(app);
-// server = server.listen(port);
-
-
-app.listen((process.env.PORT || 1337),function() {
-  console.log("The server is running");
-});
-
 module.exports = server;
 console.log('server running at http://localhost:' + config.port);
 
