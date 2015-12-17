@@ -67,7 +67,7 @@ app.get('*', resources.index);
 
 app.listen((process.env.PORT || 1337),function() {
   console.log("The server is running");
-}
+});
 
 module.exports = server;
 console.log('server running at http://localhost:' + config.port);
