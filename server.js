@@ -21,7 +21,11 @@ var config = require('./config')
 //configuration
 
 //config files 
-mongoose.connect(config.db);
+mongoose.connect(
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/mean-auth-html'
+);
 
 app.use("/", express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
