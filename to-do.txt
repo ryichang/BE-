@@ -1,15 +1,6 @@
 to-do.txt
 
 
-Display RSVP Users 
-RSVP User Comments 
-Save RSVP User comments 
-Display RSVP user Comments
-RSVP User Edit 
-Save RSVP User updates
-Display RSVP user updated comments
-
-
 Limit one RSVP per user 
 Delete RSVP per user
 Guest page to login RSVP 
@@ -20,3 +11,12 @@ Add Emailing option
 Add User pictures
 Fix bootstrap boxes 
 Add styling to splash / info boxes 
+
+++DONE 
+Display RSVP Users 
+RSVP User Comments 
+Save RSVP User comments 
+Display RSVP user Comments
+RSVP User Edit 
+Save RSVP User updates
+Display RSVP user updated comments

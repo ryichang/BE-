@@ -135,7 +135,7 @@ angular.module('basic-auth')
 
       //add Rsvp
       $scope.addRsvp = function(event) {
-        console.log($scope.currentUser.username)
+        console.log($scope.currentUser.username);
         console.log(event);  //=> resource
         var rsvp = { eventId: event._id, username: $scope.currentUser.username};
         $http.post( '/api/rsvps', rsvp, function (data) {

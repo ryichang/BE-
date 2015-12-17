@@ -64,18 +64,26 @@ module.exports = function(app) {
 	    res.sendStatus(200);
 	  });
 
-	  app.get('/api/rsvps', function(req, res){
+	 app.get('/api/rsvps', function(req, res){
 		// INDEX - GET ALL RSVPS
 		Rsvp.find().sort('-created_at').exec(function(err,rsvps) {
 			if (err) { return res.status(404).send(err); }
 			res.send(rsvps);
 		});
 	});
+
+	 app.get('/api/rsvps', function(req,res) {
+	 	Rsvp.find({}).populate('user').exec(function(err, rsvps) {
+	 		res.send(rsvps );
+	 	});
+	 });
+
+
 	  // CREATE RSVP
 	app.post('/api/rsvps', auth.ensureAuthenticated, function (req,res) {
-		console.log("req.body is", req.body)
+		console.log("req.body is", req.body);
 		Rsvp.create({user: req.userId, username: req.body.username},  function(err, rsvp){
-			console.log(rsvp)
+			console.log(rsvp);
 			if (err) { return res.send(err); }
 			Event.findById(req.body.eventId).exec(function(err, event) {
 				event.rsvps.push(rsvp);

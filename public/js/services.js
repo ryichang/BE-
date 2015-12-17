@@ -40,10 +40,10 @@ angular.module('basic-auth.services', [])
 })
 
   .factory('Rsvp', function($resource, $window) {
-  return $resource('/api/rsvps/:id', { id: '@_id'}, {
-    myEvents: {
-      method: 'GET', url: '/api/rsvps', isArray: true
-    },
+  return $resource('/api/events/:event_id/rsvps/:rsvp_id', { event_id: '@_id', rsvp_id: '@_id' }, {
+    // myEvents: {
+    //   method: 'GET', url: '/api/rsvps', isArray: true
+    // },
     update: {
       method: 'PUT' // this method issues a PUT request
     }

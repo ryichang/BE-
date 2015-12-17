@@ -3,19 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" id="profiletab"><br/>
-      <div class="card">
-        <img class="card-img-top img-circle center-block" src="http://placehold.it/100x100" alt="http://placehold.it/100x100">
+      <div class="profilecard">
+        <!-- <img class="card-img-top img-circle center-block" src="http://placehold.it/100x100" alt="http://placehold.it/100x100"> -->
         <div class="card-block">
-          
+       
           <h4 class="card-title text-center">{{user.username}}</h4>
           
-          <p class="card-text text-center">{{user.email}}</p>
+         <!--  <p class="card-text text-center">{{user.email}}</p> -->
 
         </div>
       </div>
     </div>
 
-
+    
       <div class="col-md-10">
         <div class="page-header">
        <!--    <ng-include src="'templates/newEvent'"></ng-include> -->
@@ -26,7 +26,7 @@
               </div> 
           </div>
             <h1>Events</h1>
-               <div ng-controller="EventListCtrl" class='col-sm-12 col-md-4 col-lg-4'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
+               <div ng-controller="EventListCtrl" class='col-sm-12 col-md-3 col-lg-3'  ng-repeat="event in myEvents | orderBy:'date'" ng-click="eventShow(event)">
                 <div class="card">
                   <div class="calendar-icon">{{event.date | date: 'dd'}}</div>
                   <h4>{{event.title}}</h4>
@@ -41,8 +41,8 @@
         </div>
       </div>
 
-
-  </div>
+    </div>
+  
 </div>
 
 
