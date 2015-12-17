@@ -58,14 +58,16 @@ require('./resources/events')(app);
 // redirect all others to the index (HTML5 history)
 app.get('*', resources.index);
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var port = process.env.port || 1337;
+// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+// var port = process.env.port || 1337;
 
-var server = require('http').createServer(app);
-server = server.listen(port);
+// var server = require('http').createServer(app);
+// server = server.listen(port);
 
 
-// module.exports = server;
-// console.log('server running at http://localhost:' + config.port);
+app.listen(process.env.PORT || 1337);
+
+module.exports = server;
+console.log('server running at http://localhost:' + config.port);
 
 
