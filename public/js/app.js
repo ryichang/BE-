@@ -7,25 +7,25 @@ angular.module('basic-auth', ['basic-auth.services',
                               'satellizer',
                               'google.places'])
 
-    .config(['$locationProvider', '$routeProvider', '$authProvider', function ($locationProvider, $routeProvider, $authProvider) {
+    .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider, $authProvider) {
 
-      $authProvider.google({
-      clientId: '443314981286-hij2tse2619ppccl6ar7qom10jt3ci0p.apps.googleusercontent.com'
-      });
+//       $authProvider.google({
+//       clientId: '443314981286-hij2tse2619ppccl6ar7qom10jt3ci0p.apps.googleusercontent.com'
+//       });
 
-      $authProvider.google({
-  url: '/auth/google',
-  authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-  redirectUri: window.location.origin,
-  requiredUrlParams: ['scope'],
-  optionalUrlParams: ['display'],
-  scope: ['profile', 'email'],
-  scopePrefix: 'openid',
-  scopeDelimiter: ' ',
-  display: 'popup',
-  type: '2.0',
-  popupOptions: { width: 452, height: 633 }
-});
+//       $authProvider.google({
+//   url: '/auth/google',
+//   authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
+//   redirectUri: window.location.origin,
+//   requiredUrlParams: ['scope'],
+//   optionalUrlParams: ['display'],
+//   scope: ['profile', 'email'],
+//   scopePrefix: 'openid',
+//   scopeDelimiter: ' ',
+//   display: 'popup',
+//   type: '2.0',
+//   popupOptions: { width: 452, height: 633 }
+// });
 
       $routeProvider.when('/', {
         templateUrl: 'templates/splash'
