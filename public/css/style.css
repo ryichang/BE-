@@ -204,7 +204,8 @@ p {
   cursor: pointer;
 }
 .card {
-  background: #231e1e;
+  /*background: #231e1e;*/
+  background: linear-gradient(135deg, #000, #231e1e);
   border-color: black;
   color: white;
   padding: 1rem;
